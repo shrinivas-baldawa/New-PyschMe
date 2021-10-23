@@ -6,12 +6,14 @@ import Contact from "./components/Contact";
 import Faq from "./components/Faq";
 import About from "./components/About";
 import Home from "./components/Home";
+import Dashboard from "./components/Dashboard";
 import { Route, Switch } from "react-router";
 
 function App() {
   return (
     <div>
-      <main>
+      <Dashboard/>
+      {/* <main>
         <Switch>
           <Route path='/' component={Home} exact></Route>
           <Route path='/login' component={Newlogin} exact></Route>
@@ -20,9 +22,10 @@ function App() {
           <Route path='/contact' component={Contact} exact></Route>
           <Route path='/faq' component={Faq} exact></Route>
           <Route path='/aboutus' component={About} exact></Route>
+          <Route path='/dashboard' component={Dashboard} exact></Route>
           <Route component={Error}></Route>
         </Switch>
-      </main>
+      </main> */}
     </div>
   );
 }

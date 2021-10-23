@@ -1,6 +1,7 @@
 import React,{useState} from 'react'
 import './Login.css'
 import Navbar from './Navbar';
+import Dashboard from './Dashboard';
 
 export default function Newlogin() {
 
@@ -53,6 +54,8 @@ export default function Newlogin() {
         try {
             const body = {signupName , signupEmail , signupPhone,signupPassword, signupRePassword}
             console.log(body);
+            return(<Dashboard/>);
+
         } catch (err) {
             console.error(err.message);
         }
@@ -83,7 +86,8 @@ export default function Newlogin() {
                                     <div className="group"> <label for="pass" className="label">Phone Number</label> <input id="pass" type="text" className="input" placeholder="Enter your phone number"/> </div>
                                     <div className="group"> <label for="pass" className="label">Password</label> <input id="pass" type="password" className="input" data-type="password" placeholder="Create your password"/> </div>
                                     <div className="group"> <label for="pass" className="label">Repeat Password</label> <input id="pass" type="password" className="input" data-type="password" placeholder="Repeat your password"/> </div>
-                                    <div className="group"> <input type="submit" className="button" value="Sign Up" onClick={onSubmitSignUpForm}/> </div>
+                                    <div className="group"> <input type="submit" className="button" value="Sign Up" to="/dashboard"  onClick={onSubmitSignUpForm}/> </div>
+                                    <div className="group"> <button to="/dashboard">CLick Me</button> </div>
                                     <div className="hr"></div>
                                 </div>
                             </div>
