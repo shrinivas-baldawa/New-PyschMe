@@ -7,6 +7,7 @@ import Faq from "./components/Faq";
 import About from "./components/About";
 import Home from "./components/Home";
 import MainDashboard from './components/MainDashboard'
+import PaymentAndDoctorDetails from "./components/PaymentAndDoctorDetails";
 import { Route, Switch } from "react-router";
 
 function App() {
@@ -23,6 +24,7 @@ function App() {
           <Route path='/faq' component={Faq} exact></Route>
           <Route path='/aboutus' component={About} exact></Route>
           <Route path='/maindashboard' component={MainDashboard} exact></Route>
+          <Route path='/paymentanddoctordetails' component={PaymentAndDoctorDetails} exact></Route>
           <Route component={Error}></Route>
         </Switch>
       </main>

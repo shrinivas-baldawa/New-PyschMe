@@ -51,6 +51,17 @@ app.get("/users/:email",async(req,res) => {
     }
 })
 
+// get a user by his/her email
+app.get("/users/payments/:email",async(req,res)=>{
+    try {
+        const {email} = req.params;
+        const getUser = await pool.query("SELECT doctor_name, doctor_email, doctor_phone FROM payment_details WHERE user_email = ($1)",[email]);
+        res.json(getUser.rows)
+    } catch (err) {
+        console.log(err.message);
+    }
+})
+
 // update user password by email id
 app.put("/users/:email",async(req,res) =>{
     try {
@@ -95,8 +106,8 @@ app.post('/payment/success', async(req, res)=>{
         const {doctor_name} = req.body;
         const {doctor_email} = req.body;
         const {doctor_phone} = req.body;
-        const {user_name} = req.body;
-        const insertPaymentData = await pool.query('INSERT INTO payment_details VALUES($1,$2,$3,$4,$5,$6,$7) RETURNING *',[payment_id,order_id,signature,doctor_name,doctor_email,doctor_phone,user_name]);
+        const {user_email} = req.body;
+        const insertPaymentData = await pool.query('INSERT INTO payment_details VALUES($1,$2,$3,$4,$5,$6,$7) RETURNING *',[payment_id,order_id,signature,doctor_name,doctor_email,doctor_phone,user_email]);
         res.json(insertPaymentData.rows);
     } catch (err) {
         console.log(err.message)

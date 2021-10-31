@@ -39,8 +39,9 @@ export default function List(props){
                 const doctor_name = 'Abhishek Singh';
                 const doctor_email = 'abhisheksingh@gmail.com';
                 const doctor_phone = '9090909090'
-                const user_name = props.user_name
-                const body = {payment_id, order_id, signature, doctor_name, doctor_email, doctor_phone,user_name};
+                const user_email = props.user_email
+                const body = {payment_id, order_id, signature, doctor_name, doctor_email, doctor_phone, user_email};
+                console.log(body);
                 const putPaymentData = fetch("http://localhost:5000/payment/success",{
                     method: 'POST',
                     headers: {'Content-Type': 'application/json'},
@@ -92,7 +93,8 @@ export default function List(props){
                 const doctor_name = 'Shobhana Iyer';
                 const doctor_email = 'iyershobhana@gmail.com';
                 const doctor_phone = '8800332244'
-                const body = {payment_id, order_id, signature, doctor_name, doctor_email, doctor_phone};
+                const user_email = props.user_email;
+                const body = {payment_id, order_id, signature, doctor_name, doctor_email, doctor_phone,user_email};
                 const putPaymentData = fetch("http://localhost:5000/payment/success",{
                     method: 'POST',
                     headers: {'Content-Type': 'application/json'},
@@ -144,7 +146,8 @@ export default function List(props){
                 const doctor_name = 'Geetika Babu';
                 const doctor_email = 'gbabu1010@gmail.com';
                 const doctor_phone = '7840335599'
-                const body = {payment_id, order_id, signature, doctor_name, doctor_email, doctor_phone};
+                const user_email = props.user_email;
+                const body = {payment_id, order_id, signature, doctor_name, doctor_email, doctor_phone,user_email};
                 const putPaymentData = fetch("http://localhost:5000/payment/success",{
                     method: 'POST',
                     headers: {'Content-Type': 'application/json'},
