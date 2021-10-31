@@ -1,0 +1,58 @@
+body {
+  color: #6a6f8c;
+  background: #F6F7FA;
+  font: 600 16px/18px 'Open Sans', sans-serif
+}
+
+#aboutus{
+    background: #EFEFEF;
+    padding:5px 20px 20px 20px;
+}
+
+img{
+    height: 50%;
+    width:50%;
+}
+
+.aboutUsTextDiv{
+    margin-top:50px;
+}
+
+.aboutus-image{
+    margin-top:50px;
+    margin-right: 100px;
+    text-align: right;
+}
+
+.newImage{
+    border-radius:20px;
+}
+
+.about-us-text-heading{
+    color:#3A93A2;
+    margin-top:10px;
+    margin-left: 100px;
+    text-align:Left;
+
+}
+
+.about-us-text-subHeading{
+    color:#5BBBCB;
+    text-align: Left;
+    margin-left:100px;
+}
+
+.about-us-text{
+    color:#7A7A7A;
+    margin-left:100px;
+}
+
+.meet-the-team{
+    display: flex;
+    justify-content: center;
+    margin-top:50px;
+}
+
+.row{
+    margin-right: 200px;
+}

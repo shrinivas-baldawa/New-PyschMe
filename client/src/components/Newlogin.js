@@ -1,6 +1,7 @@
 import React,{useState} from 'react'
+import validator from 'validator';
+import Navbar from './Navbar'
 import './Login.css'
-import Navbar from './Navbar';
 
 export default function Newlogin() {
 
@@ -12,6 +13,13 @@ export default function Newlogin() {
     const [signupPhone,setSignupPhone] = useState('')
     const [signupPassword,setSignupPassword] = useState('')
     const [signupRePassword,setSignupRePassword] = useState('')
+    const [signupDOB, setSignUpDob] = useState(new Date())
+
+    const [emailError, setEmailError] = useState('');
+    const [passwordError, setPasswordError] = useState('');
+
+    var emailValue = false;
+    var passwordValue = false;
 
     const handleOnEmailChange = (event) => {
         setEmail(event.target.value)
@@ -23,6 +31,45 @@ export default function Newlogin() {
 
     const onSignUpNameChange = (event) => {
         setSignupName(event.target.value)
+    }
+
+    const onSignUpEmailChange = (event) => {
+        var checkEmail = event.target.value;
+        if(validator.isEmail(checkEmail)) {
+            setEmailError('Valid Email :)')
+            emailValue = true;
+        }
+        else{
+            setEmailError('Enter valid Email!')
+        }
+        setSignupEmail(event.target.value)
+    }
+
+    const onSignUpPhoneChange = (event) => {
+        setSignupPhone(event.target.value)
+    }
+
+    const onSignUpPasswordsChange = (event) => {
+        var checkPassword = event.target.value
+        if(validator.isStrongPassword(checkPassword,{
+            minLength: 8, minLowercase: 1, minUppercase: 1, minNumbers: 1, minSymbols: 1
+        })){
+            setPasswordError('Is Strong Password')
+            passwordValue = true;
+        }
+        else{
+            setPasswordError('Is Not Strong Password')
+        }
+
+        setSignupPassword(event.target.value)
+    }
+
+    const onSignUpRePasswordsChange = (event) => {
+        setSignupRePassword(event.target.value)
+    }
+
+    const onSignUpDobChange = (event) => {
+        setSignUpDob(event.target.value)
     }
 
     const onSubmitFormCheck = async() =>{
@@ -51,8 +98,31 @@ export default function Newlogin() {
 
     const onSubmitSignUpForm = async() => {
         try {
-            const body = {signupName , signupEmail , signupPhone,signupPassword, signupRePassword}
-            console.log(body);
+            const name = signupName;
+            const email = signupEmail;
+            const dob = signupDOB;
+            const phone = signupPhone;
+            const password = signupPassword;
+            const body = {name,email,dob,phone,password}
+            console.log(body)
+            if(emailValue && passwordValue){
+                const response = await fetch("http://localhost:5000/users",{
+                    method: "POST",
+                    headers: {'Content-Type': 'application/json'},
+                    body:JSON.stringify(body)
+                });
+                console.log(response);
+                alert('User created successfully.')
+                setSignupName("")
+                setSignupEmail("")
+                setSignupPhone("")
+                setSignupPassword("")
+                setSignupRePassword("")
+                setSignUpDob("")
+            }
+            else{
+                alert('Please enter valid values, and try again!')
+            }
         } catch (err) {
             console.error(err.message);
         }
@@ -60,13 +130,13 @@ export default function Newlogin() {
 
     return (
         <div>
-        <Navbar/>
+            <Navbar></Navbar>
         <div className="row">
             <div className="col-md-6 mx-auto p-0">
                 <div className="card">
                     <div className="login-box">
                         <div className="login-snip"> 
-                            <input id="tab-1" type="radio" name="tab" className="sign-in" />
+                            <input id="tab-1" type="radio" name="tab" className="sign-in"/>
                             <label for="tab-1" className="tab">Login</label> <input id="tab-2" type="radio" name="tab" className="sign-up"/>
                             <label for="tab-2" className="tab">Sign Up</label>
                             <div className="login-space">
@@ -79,10 +149,11 @@ export default function Newlogin() {
                                 </div>
                                 <div className="sign-up-form">
                                     <div className="group"> <label for="user" className="label">Name</label> <input id="user" type="text" className="input" placeholder="Enter Your Name" onChange={onSignUpNameChange}/> </div>
-                                    <div className="group"> <label for="pass" className="label">Email Address</label> <input id="pass" type="text" className="input" placeholder="Enter your email address"/> </div>
-                                    <div className="group"> <label for="pass" className="label">Phone Number</label> <input id="pass" type="text" className="input" placeholder="Enter your phone number"/> </div>
-                                    <div className="group"> <label for="pass" className="label">Password</label> <input id="pass" type="password" className="input" data-type="password" placeholder="Create your password"/> </div>
-                                    <div className="group"> <label for="pass" className="label">Repeat Password</label> <input id="pass" type="password" className="input" data-type="password" placeholder="Repeat your password"/> </div>
+                                    <div className="group"> <label for="pass" className="label">Email Address</label> <input id="pass" type="text" className="input" placeholder="Enter your email address" onChange={onSignUpEmailChange}/> <label for="pass" className="label">{emailError}</label></div>
+                                    <div className="group"> <label for="pass" className="label">Phone Number</label> <input id="pass" type="text" className="input" placeholder="Enter your phone number" onChange={onSignUpPhoneChange}/> </div>
+                                    <div className="group"> <label for="pass" className="label">Date Of Birth</label> <input id="pass" type="date" className="input" placeholder="Enter your date of birth" onChange={onSignUpDobChange} style={{color:'white'}} defaultValue={Date.now()}/> </div>
+                                    <div className="group"> <label for="pass" className="label">Password</label> <input id="pass" type="password" className="input" data-type="password" placeholder="Create your password" onChange={onSignUpPasswordsChange}/> <label for="pass" className="label">{passwordError}</label> </div>
+                                    <div className="group"> <label for="pass" className="label">Repeat Password</label> <input id="pass" type="password" className="input" data-type="password" placeholder="Repeat your password" onChange={onSignUpRePasswordsChange}/> </div>
                                     <div className="group"> <input type="submit" className="button" value="Sign Up" onClick={onSubmitSignUpForm}/> </div>
                                     <div className="hr"></div>
                                 </div>

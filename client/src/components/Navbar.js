@@ -1,12 +1,13 @@
 import React from 'react'
 import { NavLink } from 'react-router-dom'
+import {Link} from 'react-scroll';
 
 export default function Navbar() {
     return (
         <div>
-            <nav className="navbar navbar-expand-lg navbar-dark bg-dark">
+            <nav className="navbar fixed-top navbar-expand-lg navbar-dark bg-dark">
                 <div className="container-fluid">
-                    <a className="navbar-brand" to="/">Pysch.Me</a>
+                    <NavLink className="navbar-brand" to="/">Pysch.Me</NavLink>
                     <span class="mb-0 h5">
                         <button className="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
                         <span className="navbar-toggler-icon"></span>
@@ -17,19 +18,19 @@ export default function Navbar() {
                                 <NavLink className="nav-link active" aria-current="page" to='/'>Home</NavLink>
                                 </li>
                                 <li className="nav-item px-2">
-                                <NavLink className="nav-link active" aria-current="page" to="/aboutus">About Us</NavLink>
+                                <NavLink className="nav-link active" aria-current="page" to="aboutus" spy={true} smooth={true}>About Us</NavLink>
                                 </li>
                                 <li className="nav-item px-2">
-                                <NavLink className="nav-link active" aria-current="page" to='/services'>Services</NavLink>
+                                <NavLink className="nav-link active" aria-current="page" to='services'>Services</NavLink>
                                 </li>
                                 <li className="nav-item px-2">
-                                <NavLink className="nav-link active" aria-current="page" to='/login'>Login/SignUp</NavLink>
+                                <NavLink className="nav-link active" aria-current="page" to='login'>Login/SignUp</NavLink>
                                 </li>
                                 <li className="nav-item px-2">
-                                <NavLink className="nav-link active" aria-current="page" to="/faq">FAQ</NavLink>
+                                <NavLink className="nav-link active" aria-current="page" to="faq">FAQ</NavLink>
                                 </li>
                                 <li className="nav-item px-2">
-                                <NavLink className="nav-link active" aria-current="page" to="/contact">Contact Us</NavLink>
+                                <NavLink className="nav-link active" aria-current="page" to="contact">Contact Us</NavLink>
                                 </li>
                             </ul>
                         </div>

@@ -1,0 +1,20 @@
+.container {
+  background: #EFEFEF;
+  min-width: 94.8rem;
+  margin-top: 50px;
+  margin-bottom: 70px;
+  padding-top:30px;
+  padding-bottom:30px;
+  padding-left: 30px;
+  padding-right: 30px;
+}
+
+.accordion-button{
+  background:#5BBBCB;
+}
+
+.faq-h2{
+  text-align:center;
+  margin-bottom:35px;
+  color:#3A93A2;
+}

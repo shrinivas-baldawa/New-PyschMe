@@ -1,0 +1,15 @@
+body{
+    background: #F6F7FA;
+    font: 600 16px/18px 'Open Sans', sans-serif
+}
+
+.contact{
+    text-align: center;
+    margin-left:auto;
+    margin-top:90px;
+}
+
+h1{
+    font-size:60px;
+    padding-bottom: 15px;
+}

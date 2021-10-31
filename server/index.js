@@ -2,10 +2,17 @@ const express = require('express');
 const app = express();
 const cors = require('cors');
 const pool = require('./db');
+const Razorpay = require('razorpay')
+const shortid = require('shortid');
 
 //middleware
 app.use(cors({origin: '*'}));
 app.use(express.json());
+
+var razorpay = new Razorpay({
+    key_id:'rzp_test_Rxo3iSWRp7weUJ',
+    key_secret:'RD0qVzmdkGhawB5T6VcEIuAo',
+});
 
 //ROUTES//
 // create a user
@@ -53,6 +60,30 @@ app.put("/users/:email",async(req,res) =>{
         res.json(updateUser.rows);
     } catch (err) {
         console.error(err.message);
+    }
+})
+
+// payment 
+app.post('/payment/razorpay', async(req,res)=>{
+    try {
+        const payment_capture=1
+        const amount=500
+        const currency = 'INR'
+
+        const options = {amount:(amount*100).toString(),
+            currency,
+            receipt: shortid.generate(),
+            payment_capture
+        }
+        const response = await razorpay.orders.create(options)
+        console.log(response)
+        res.json({
+            id: response.id,
+            currency: response.currency,
+            amount: response.amount
+        })
+    } catch (error) {
+        console.log(error.message);
     }
 })
 
