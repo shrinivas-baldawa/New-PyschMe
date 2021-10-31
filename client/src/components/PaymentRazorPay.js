@@ -38,9 +38,18 @@ export default function PaymentRazorPay() {
             "name": "Pysch.Me",
             "description": "Thank you for your payment.",
             "handler": function (response){
-                alert(response.razorpay_payment_id);
-                alert(response.razorpay_order_id);
-                alert(response.razorpay_signature)
+                const payment_id = response.razorpay_payment_id;
+                const order_id = response.razorpay_order_id;
+                const signature = response.razorpay_signature;
+                const doctor_name = 'ShrinivasBaldawa';
+                const doctor_email = 'shrinivasbaldawa1234@gmail.com';
+                const doctor_phone = '7843017204'
+                const body = {payment_id, order_id, signature, doctor_name, doctor_email, doctor_phone};
+                const putPaymentData = fetch("http://localhost:5000/payment/success",{
+                    method: 'POST',
+                    headers: {'Content-Type': 'application/json'},
+                    body:JSON.stringify(body)
+                })
             },
             "prefill": {
                 "name": "Gaurav Kumar",

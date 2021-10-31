@@ -87,6 +87,22 @@ app.post('/payment/razorpay', async(req,res)=>{
     }
 })
 
+app.post('/payment/success', async(req, res)=>{
+    try {
+        const {payment_id} = req.body;
+        const {order_id} = req.body;
+        const {signature} = req.body;
+        const {doctor_name} = req.body;
+        const {doctor_email} = req.body;
+        const {doctor_phone} = req.body;
+        const {user_name} = req.body;
+        const insertPaymentData = await pool.query('INSERT INTO payment_details VALUES($1,$2,$3,$4,$5,$6,$7) RETURNING *',[payment_id,order_id,signature,doctor_name,doctor_email,doctor_phone,user_name]);
+        res.json(insertPaymentData.rows);
+    } catch (err) {
+        console.log(err.message)
+    }
+})
+
 app.listen(5000, ()=> {
     console.log("server listening on port 5000");
 });

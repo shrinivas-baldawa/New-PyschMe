@@ -8,7 +8,7 @@ import '../App.css'
 import { useEffect } from "react";
 import { useLocation } from "react-router-dom";
 
-export default function MainDashboard(props) {
+export default function MainDashboard() {
 
     const location = useLocation();
 
@@ -24,7 +24,7 @@ export default function MainDashboard(props) {
             <User name={location.state.fetchName || location.state.name} phone={location.state.fetchPhone || location.state.phone} email={location.state.fetchEmail || location.state.email} dob={location.state.fetchDOB || location.state.dob}/>
             <Card/>
             <div className="Container">
-                <List/>
+                <List name={location.state.fetchName || location.state.name} email={location.state.fetchEmail || location.state.email} phone={location.state.fetchPhone || location.state.phone} user_name={location.state.fetchName || location.state.name}/>
                 <Checkbox/>
             </div>
             <DashNav/>

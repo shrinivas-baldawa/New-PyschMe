@@ -4,7 +4,7 @@ import "./styles/checkbox.css";
 export default function Checkbox() {
     return (
         <div className="CheckApp">
-            <h3>TO DO LIST</h3>
+            <h3 style={{"textAlign":"center","backgroundColor":"yellowgreen","color":"black","borderBottom":"1px solid black"}}>TO DO LIST</h3>
             <div classname="list">
                 <div className="todo">
                     <input type="checkbox" id="yoga" name="yoga" value="yoga"  />
