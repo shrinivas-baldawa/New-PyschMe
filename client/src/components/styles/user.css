@@ -1,0 +1,23 @@
+.btn1 img{
+    width:60px;
+    height:60px;
+}
+
+.btn1 {
+    position:absolute;
+    margin-left:500px;
+    right: 2rem;
+    top: 1.5rem;
+    border-radius: 5px;
+    padding: 0;
+    background-color: white;
+    border: 0px;
+}
+
+.btn1:hover {
+    background-color: antiquewhite;
+}
+
+.btn1:focus {
+    background-color: white;
+}

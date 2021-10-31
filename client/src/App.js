@@ -6,6 +6,7 @@ import Contact from "./components/Contact";
 import Faq from "./components/Faq";
 import About from "./components/About";
 import Home from "./components/Home";
+import MainDashboard from './components/MainDashboard'
 import { Route, Switch } from "react-router";
 
 function App() {
@@ -21,6 +22,7 @@ function App() {
           <Route path='/contact' component={Contact} exact></Route>
           <Route path='/faq' component={Faq} exact></Route>
           <Route path='/aboutus' component={About} exact></Route>
+          <Route path='/maindashboard' component={MainDashboard} exact></Route>
           <Route component={Error}></Route>
         </Switch>
       </main>

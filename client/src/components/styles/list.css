@@ -1,0 +1,41 @@
+.list-group {
+    padding-left: 10rem;
+    padding-right: 10rem;
+  }
+  
+  table {
+      border-collapse: collapse;
+      margin: 25px 0;
+      font-size: 0.9em;
+      font-family: sans-serif;
+      min-width: 400px;
+      box-shadow: 0 0 20px rgba(0, 0, 0, 0.25);
+    }
+    
+    td, th {
+      border: 1.5px solid #000;
+      text-align: left;
+      padding: 8px;
+    }
+  
+    tr:hover {
+      color: #009879;
+    }
+  
+    tr.header {
+      background-color:cornflowerblue;
+      color: #ffffff;
+      text-align: left;
+    }
+    
+    tr:nth-child(even) {
+      background-color:aliceblue;
+    }
+  
+    .list-group-item-action:hover {
+      background-color:#009879;
+      color: #000;
+    }
+    
+  
+  

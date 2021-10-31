@@ -1,0 +1,8 @@
+.card {
+    border: 1.5px solid gray;
+}
+
+.col-4 {
+    padding-left: 5rem;
+    padding-top: 1rem;
+}

@@ -12,15 +12,15 @@ export default function HomeComp1() {
             <div className="flex-container">
                 <div className="left-item">
                     <CheckIcon style={{ fontSize: 80 }}/>
-                    <h3>We Always Provide Personal Attention To Everyone</h3>
+                    <h3 style={{background:'#e9ecef'}}>We Always Provide Personal Attention To Everyone</h3>
                 </div>
                 <div className="center-item">
                     <CheckIcon style={{ fontSize: 100 }}/>
-                    <h3>No Referrals Required For New Patients!</h3>
+                    <h3 style={{color:'#ffffff',background:'#3A93A2'}}>No Referrals Required For New Patients!</h3>
                 </div>
                 <div className="right-item">
                     <CheckIcon style={{ fontSize: 80 }}/>
-                    <h3>Urgent Requests Seen Within 24 Hours!</h3>
+                    <h3 style={{background:'#e9ecef'}}>Urgent Requests Seen Within 24 Hours!</h3>
                 </div>
             </div>
         </div>

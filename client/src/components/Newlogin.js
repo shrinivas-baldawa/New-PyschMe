@@ -1,9 +1,12 @@
 import React,{useState} from 'react'
+import { useHistory } from "react-router-dom";
 import validator from 'validator';
 import Navbar from './Navbar'
 import './Login.css'
 
 export default function Newlogin() {
+
+    const history = useHistory();
 
     const [email,setEmail] = useState('')
     const [password,setPassword] = useState('');
@@ -79,6 +82,9 @@ export default function Newlogin() {
             var data = JSON.parse(JSON.stringify(jsonData));
             var fetchEmail = data[0]['email'];
             var fetchPassword = data[0]['password'];
+            var fetchName = data[0]['name'];
+            var fetchDOB = data[0]['dob'];
+            var fetchPhone = data[0]['phone'];
             console.log(jsonData);
             console.log(data);
             if(email === "" || password === ""){
@@ -86,7 +92,10 @@ export default function Newlogin() {
             }
 
             else if(fetchEmail === email && fetchPassword === password){
-                alert("valid credentials");
+                history.push({
+                    pathname:'/maindashboard',
+                    state: {fetchName,fetchEmail,fetchDOB,fetchPhone}
+                })
             }
             else{
                 alert("Invalid credentials");
@@ -105,20 +114,16 @@ export default function Newlogin() {
             const password = signupPassword;
             const body = {name,email,dob,phone,password}
             console.log(body)
-            if(emailValue && passwordValue){
+            if(signupPassword === signupRePassword){
                 const response = await fetch("http://localhost:5000/users",{
                     method: "POST",
                     headers: {'Content-Type': 'application/json'},
                     body:JSON.stringify(body)
                 });
-                console.log(response);
-                alert('User created successfully.')
-                setSignupName("")
-                setSignupEmail("")
-                setSignupPhone("")
-                setSignupPassword("")
-                setSignupRePassword("")
-                setSignUpDob("")
+                history.push({
+                    pathname:'/maindashboard',
+                    state: {name,email,dob,phone}
+                })
             }
             else{
                 alert('Please enter valid values, and try again!')

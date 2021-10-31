@@ -44,7 +44,7 @@ app.get("/users",async(req,res) => {
 app.get("/users/:email",async(req,res) => {
     try {
         const {email} = req.params;
-        const getUser = await pool.query("SELECT email,password FROM login_details WHERE email = ($1)",[email]);
+        const getUser = await pool.query("SELECT * FROM login_details WHERE email = ($1)",[email]);
         res.json(getUser.rows);
     } catch (err) {
         console.error(err.message);
