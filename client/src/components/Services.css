@@ -39,3 +39,66 @@ h4 {
     font-size: 1.5em;
     color:#222222;
 }
+
+h1 {
+    color:#3A93A2;
+    text-align: center;
+    margin-left: auto;
+}
+
+h4 {
+    color:#5BBBCB;
+    text-align: center;
+    margin-left: auto;
+}
+
+.services-container{
+    margin-left: 100px;
+    display:flex;
+    justify-content: center;
+}
+
+.cards{
+    margin-right: 8%;
+    width: 18%;
+    border-radius:1em;
+    box-shadow: 0px 0px 10px black;
+}
+
+.cards:hover {
+    cursor: pointer;
+}
+
+.image{
+    width:100%;
+    border-top-left-radius: 1em;
+    border-top-right-radius: 1em;
+}
+
+.cards-info,
+.btns{
+    padding:1em;
+    margin-bottom: 0.1em;
+}
+
+.cards-info > h1,
+.btns > h1{
+    text-align:center;
+    font-size: 1.5em;
+    color:#222222;
+}
+
+.btns {
+    border: 0;
+    background-color: white;
+    color: black;
+}
+
+.btns:hover {
+    background-color: white;
+    color: black;
+}
+
+.btns:focus {
+    background-color: white;
+}

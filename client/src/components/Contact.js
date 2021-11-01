@@ -9,6 +9,7 @@ import './Contact.css'
 export default function Contact() {
     return (
         <div className="contact">
+            <Navbar></Navbar>
             <h1 style={{textAlign: 'center',lineHeight: '25pt'}}>Pysch.Me</h1>
             <br/>
             <h4 style={{textAlign: 'center',lineHeight: '25pt'}}><LocalPhoneIcon/> +91 78430-17204</h4>

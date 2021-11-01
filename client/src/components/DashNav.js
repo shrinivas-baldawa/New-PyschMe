@@ -1,6 +1,7 @@
 import "./styles/dashnav.css"
 import { useState } from "react";
 import { useHistory } from "react-router-dom";
+import { Link } from "react-scroll";
 
 export default function DashNav(props) {
 
@@ -46,20 +47,21 @@ export default function DashNav(props) {
                 </div>
                 <ul className="nav-list">
                     <li>
-                        <a href="">
+                        <Link to="Card" smooth={true} duration={500} className="a">
                             <i className='bx bx-user' ></i>
                             <span className="links_name">Doctor Profiles</span>
-                        </a>
+                        </Link>
+                        <Link to="Checkbox" smooth={true} duration={500} className="a">
+                            <i className='bx bx-user' ></i>
+                            <span className="links_name">To Do List</span>
+                        </Link>
                         <a onClick={PaymentAndDoctorDetials}>
                             <i className='bx bx-user' ></i>
                             <span className="links_name">Payment & Doctor Details</span>
                         </a>
+                        
                     </li>
                     <li className="menu">
-                        <a href="">
-                            <i className='bx bx-chast' ></i>
-                            <span className="links_name">To Do List</span>
-                        </a>
                         <a href="/">
                             <i className='bx bx-chast' ></i>
                             <span className="links_name">Logout</span>

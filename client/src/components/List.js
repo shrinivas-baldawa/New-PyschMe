@@ -178,7 +178,7 @@ export default function List(props){
     }
 
     return(
-        <div className="list-group">
+        <div class="list-group" id="List">
             <table>
                 <tr className="header">
                     <th>Counsellor Name</th>
