@@ -13,7 +13,7 @@ export default function PaymentAndDoctorDetails() {
     const fetchUser = async() => {
         try {
             const email = location.state.email;
-            const response = await fetch(`http://localhost:5000/users/payments/${email}`);
+            const response = await fetch(`/users/payments/${email}`);
             var jsonData = await response.json();
             return {success: true, data:jsonData};
         } catch (err) {

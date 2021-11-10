@@ -77,7 +77,7 @@ export default function Newlogin() {
 
     const onSubmitFormCheck = async() =>{
         try {
-            const response = await fetch(`http://localhost:5000/users/${email}`);
+            const response = await fetch(`/users/${email}`);
             var jsonData = await response.json();
             var data = JSON.parse(JSON.stringify(jsonData));
             var fetchEmail = data[0]['email'];
@@ -115,7 +115,7 @@ export default function Newlogin() {
             const body = {name,email,dob,phone,password}
             console.log(body)
             if(signupPassword === signupRePassword){
-                const response = await fetch("http://localhost:5000/users",{
+                const response = await fetch("/users",{
                     method: "POST",
                     headers: {'Content-Type': 'application/json'},
                     body:JSON.stringify(body)

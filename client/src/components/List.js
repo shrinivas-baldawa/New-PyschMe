@@ -23,7 +23,7 @@ export default function List(props){
             alert('Razorpay SDK failed to load. Are you online?')
             return
         }
-        const data = await fetch('http://localhost:5000/payment/razorpay',{method: 'POST'}).then((t) => t.json())
+        const data = await fetch('/payment/razorpay',{method: 'POST'}).then((t) => t.json())
         console.log(data)
         var options = {
             "key": __DEV__ ? 'rzp_test_Rxo3iSWRp7weUJ' : 'PRODUCTION_KEY',
@@ -42,7 +42,7 @@ export default function List(props){
                 const user_email = props.user_email
                 const body = {payment_id, order_id, signature, doctor_name, doctor_email, doctor_phone, user_email};
                 console.log(body);
-                const putPaymentData = fetch("http://localhost:5000/payment/success",{
+                const putPaymentData = fetch("/payment/success",{
                     method: 'POST',
                     headers: {'Content-Type': 'application/json'},
                     body:JSON.stringify(body)
@@ -77,7 +77,7 @@ export default function List(props){
             alert('Razorpay SDK failed to load. Are you online?')
             return
         }
-        const data = await fetch('http://localhost:5000/payment/razorpay',{method: 'POST'}).then((t) => t.json())
+        const data = await fetch('/payment/razorpay',{method: 'POST'}).then((t) => t.json())
         console.log(data)
         var options = {
             "key": __DEV__ ? 'rzp_test_Rxo3iSWRp7weUJ' : 'PRODUCTION_KEY',
@@ -95,7 +95,7 @@ export default function List(props){
                 const doctor_phone = '8800332244'
                 const user_email = props.user_email;
                 const body = {payment_id, order_id, signature, doctor_name, doctor_email, doctor_phone,user_email};
-                const putPaymentData = fetch("http://localhost:5000/payment/success",{
+                const putPaymentData = fetch("/payment/success",{
                     method: 'POST',
                     headers: {'Content-Type': 'application/json'},
                     body:JSON.stringify(body)
@@ -130,7 +130,7 @@ export default function List(props){
             alert('Razorpay SDK failed to load. Are you online?')
             return
         }
-        const data = await fetch('http://localhost:5000/payment/razorpay',{method: 'POST'}).then((t) => t.json())
+        const data = await fetch('/payment/razorpay',{method: 'POST'}).then((t) => t.json())
         console.log(data)
         var options = {
             "key": __DEV__ ? 'rzp_test_Rxo3iSWRp7weUJ' : 'PRODUCTION_KEY',
@@ -148,7 +148,7 @@ export default function List(props){
                 const doctor_phone = '7840335599'
                 const user_email = props.user_email;
                 const body = {payment_id, order_id, signature, doctor_name, doctor_email, doctor_phone,user_email};
-                const putPaymentData = fetch("http://localhost:5000/payment/success",{
+                const putPaymentData = fetch("/payment/success",{
                     method: 'POST',
                     headers: {'Content-Type': 'application/json'},
                     body:JSON.stringify(body)

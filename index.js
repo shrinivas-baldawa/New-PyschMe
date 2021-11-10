@@ -4,10 +4,16 @@ const cors = require('cors');
 const pool = require('./db');
 const Razorpay = require('razorpay')
 const shortid = require('shortid');
+const path = require('path');
+const PORT = process.env.PORT || 5000;
 
 //middleware
 app.use(cors({origin: '*'}));
 app.use(express.json());
+
+if(process.env.NODE_ENV === 'production'){
+    app.use(express.static(path.join(__dirname, 'client/build')));
+} 
 
 var razorpay = new Razorpay({
     key_id:'rzp_test_Rxo3iSWRp7weUJ',
@@ -114,6 +120,6 @@ app.post('/payment/success', async(req, res)=>{
     }
 })
 
-app.listen(5000, ()=> {
-    console.log("server listening on port 5000");
+app.listen(PORT, ()=> {
+    console.log(`Server listening on port ${PORT}`);
 });

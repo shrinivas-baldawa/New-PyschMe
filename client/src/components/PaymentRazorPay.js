@@ -27,7 +27,7 @@ export default function PaymentRazorPay() {
             return
         }
 
-        const data = await fetch('http://localhost:5000/payment/razorpay',{method: 'POST'}).then((t) => t.json())
+        const data = await fetch('/payment/razorpay',{method: 'POST'}).then((t) => t.json())
         console.log(data)
 
         var options = {
@@ -45,7 +45,7 @@ export default function PaymentRazorPay() {
                 const doctor_email = 'shrinivasbaldawa1234@gmail.com';
                 const doctor_phone = '7843017204'
                 const body = {payment_id, order_id, signature, doctor_name, doctor_email, doctor_phone};
-                const putPaymentData = fetch("http://localhost:5000/payment/success",{
+                const putPaymentData = fetch("/payment/success",{
                     method: 'POST',
                     headers: {'Content-Type': 'application/json'},
                     body:JSON.stringify(body)
