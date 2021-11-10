@@ -120,6 +120,10 @@ app.post('/payment/success', async(req, res)=>{
     }
 })
 
+app.get("*", (req, res) => {
+    res.sendFile(path.join(__dirname, 'client/build/index.html'));
+}) // this function is used when some random value is inserted in the url which is not a defined route
+
 app.listen(PORT, ()=> {
     console.log(`Server listening on port ${PORT}`);
 });
