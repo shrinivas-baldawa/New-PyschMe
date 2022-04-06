@@ -1,7 +1,7 @@
 {
   "name": "client",
   "version": "0.1.0",
-  "homepage": "https://shrinivas-baldawa.github.io",
+  "homepage": " https://shrinivas-baldawa.github.io/New-PyschMe/",
   "private": true,
   "dependencies": {
     "@emotion/cache": "^11.5.0",
