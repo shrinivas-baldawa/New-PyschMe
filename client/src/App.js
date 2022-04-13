@@ -16,15 +16,15 @@ function App() {
     <div>
       <main>
         <Switch>
-          <Route path='/' component={Home} exact></Route>
-          <Route path='/login' component={Newlogin} exact></Route>
-          <Route path='/services' component={Services} exact></Route>
-          <Route path='/forgotpassword' component={Forgotpassword} exact></Route>
-          <Route path='/contact' component={Contact} exact></Route>
-          <Route path='/faq' component={Faq} exact></Route>
-          <Route path='/aboutus' component={About} exact></Route>
-          <Route path='/maindashboard' component={MainDashboard} exact></Route>
-          <Route path='/paymentanddoctordetails' component={PaymentAndDoctorDetails} exact></Route>
+          <Route path='/New-PyschMe/' component={Home} exact></Route>
+          <Route path='/New-PyschMe/login' component={Newlogin} exact></Route>
+          <Route path='/New-PyschMe/services' component={Services} exact></Route>
+          <Route path='/New-PyschMe/forgotpassword' component={Forgotpassword} exact></Route>
+          <Route path='/New-PyschMe/contact' component={Contact} exact></Route>
+          <Route path='/New-PyschMe/faq' component={Faq} exact></Route>
+          <Route path='/New-PyschMe/aboutus' component={About} exact></Route>
+          <Route path='/New-PyschMe/maindashboard' component={MainDashboard} exact></Route>
+          <Route path='/New-PyschMe/paymentanddoctordetails' component={PaymentAndDoctorDetails} exact></Route>
           <Route component={Error}></Route>
         </Switch>
       </main>
